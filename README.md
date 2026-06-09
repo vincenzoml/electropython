@@ -9,16 +9,20 @@ npm install
 npm run dev
 ```
 
+No system `python` is required. On first start ElectroPython downloads a pinned `uv` binary (unless `vendor/uv/<platform>/` already contains one), provisions Python 3.14 into `.electropython/`, creates a venv, installs `requirements.txt`, and starts uvicorn.
+
 Useful commands:
 
 ```bash
 npm run dev          # Electron desktop mode
 npm run dev:web      # Web mode
+npm run doctor       # Runtime diagnostics (uv, venv, Python, APIs)
+npm run bootstrap-uv # Download pinned uv for the current platform
 npm run cli -- help  # CLI mode
 npm run ai-api       # Restricted runtime AI-agent API
 npm run mcp          # MCP server placeholder
 npm run build        # Build frontend
-npm run package      # Package desktop app
+npm run package      # Bootstrap uv, build, and package desktop app
 ```
 
 ## Architectural rule

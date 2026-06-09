@@ -10,6 +10,8 @@ function run(cmd: string, argv: string[]) {
   return spawn(cmd, argv, { stdio: 'inherit', shell: process.platform === 'win32' });
 }
 
+log('info', 'dev', 'Python API uses vendored uv; no system python required');
+
 run('npm', ['run', 'python-api']);
 run('npm', ['run', 'ai-api']);
 run('vite', ['--host', '127.0.0.1']);

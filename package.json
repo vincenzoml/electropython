@@ -7,13 +7,15 @@
   "main": "framework/electron/main/dev-main.cjs",
   "scripts": {
     "dev": "tsx framework/dev/run.ts --electron",
-    "python-api": "python -m uvicorn framework.python.api_server.server:app --host 127.0.0.1 --port 37620",
+    "python-api": "tsx framework/python/runtime/python-api.ts",
     "dev:web": "tsx framework/dev/run.ts --web",
     "cli": "tsx app/cli/main.ts",
     "ai-api": "tsx app/ai/runtime-api.ts",
     "mcp": "tsx app/mcp/server.ts",
+    "doctor": "tsx framework/python/runtime/doctor.ts",
+    "bootstrap-uv": "tsx framework/python/runtime/bootstrap-uv.ts",
     "build": "vite build && tsc -p tsconfig.node.json",
-    "package": "npm run build && electron-builder",
+    "package": "npm run build && npm run bootstrap-uv && electron-builder",
     "typecheck": "tsc --noEmit",
     "test": "tsx tests/self-test.ts"
   },
@@ -54,6 +56,11 @@
       {
         "from": "requirements.txt",
         "to": "requirements.txt"
+      },
+      {
+        "from": "vendor/uv",
+        "to": "vendor/uv",
+        "filter": ["**/*"]
       }
     ],
     "directories": {

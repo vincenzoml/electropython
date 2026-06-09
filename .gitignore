@@ -1,1 +1,9 @@
 node_modules
+.electropython/cache/
+.electropython/logs/
+.electropython/python/
+.electropython/state/
+.electropython/venv/
+vendor/uv/*/
+!vendor/uv/.gitkeep
+!vendor/uv/README.md
