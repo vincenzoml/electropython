@@ -1,5 +1,11 @@
 # Component System
 
-This document is a scaffold placeholder. Expand it while implementing ElectroPython.
+The component system is split into two layers:
 
-Important rule: application actions in `app/logic/actions/` define what users, the CLI, the UI, MCP, and AI agents can do. Capabilities in Python and Node.js are lower-level building blocks.
+1. `app/ui/components/` contains reusable application widgets.
+2. `app/ui/design/` contains the design workshop, token registry, component registry, and preview surfaces.
+
+Components should render state and emit intent. They should not own business logic.
+Application behavior belongs in `app/logic/actions/` and capability-specific code belongs in `app/python/` or `app/node/`.
+
+The initial registry is defined in `app/ui/design/design-system.ts` and surfaced by Design Mode.

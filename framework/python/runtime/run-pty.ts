@@ -58,8 +58,6 @@ async function runPtyNative(
     child.onExit(({ exitCode }) => {
       resolve({ code: exitCode ?? 1 });
     });
-
-    child.on('error', reject);
   });
 }
 
