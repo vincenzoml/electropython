@@ -1,6 +1,7 @@
 <script lang="ts">
   import StatusCard from './components/StatusCard.svelte';
   import DesignMode from './design/DesignMode.svelte';
+  import RuntimeInstallLog from '$framework/ui/components/RuntimeInstallLog.svelte';
   import { appState } from './stores/app-state.svelte';
   import { callAction } from './lib/client';
   import { bootApplication } from '../logic/boot';
@@ -53,3 +54,7 @@
     <DesignMode />
   {/if}
 </main>
+
+{#if appState.runtime.showBootstrap}
+  <RuntimeInstallLog />
+{/if}

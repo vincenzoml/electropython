@@ -43,7 +43,7 @@ npm run bootstrap-uv
 2. Resolve the bundled `uv` binary from `resources/vendor/uv/<platform>/`.
 3. Run `uv python install 3.14` with `UV_PYTHON_INSTALL_DIR` pointing at app-data.
 4. Create or repair the venv with `uv venv`.
-5. Run `uv pip install -r requirements.txt` into that venv.
+5. Run `uv pip install -r requirements.txt --only-binary :all:` into that venv (pre-built wheels only; no Rust toolchain required).
 6. Start uvicorn with the venv interpreter and `PYTHONPATH` set to the app root.
 7. Verify Python, Node.js, bridge, and action health (`npm run doctor`).
 8. Never expose dev APIs, unrestricted Python console, or unsafe bridge routes by default.

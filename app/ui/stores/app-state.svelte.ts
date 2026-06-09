@@ -8,7 +8,8 @@ export const appState = $state({
     mode: 'web',
     python: 'unknown' as 'unknown' | 'starting' | 'ready' | 'error',
     node: 'unknown' as 'unknown' | 'starting' | 'ready' | 'error',
-    bridge: 'unknown' as 'unknown' | 'ready' | 'error'
+    bridge: 'unknown' as 'unknown' | 'ready' | 'error',
+    showBootstrap: false
   },
   demo: {
     name: 'Ada',

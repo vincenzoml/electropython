@@ -4,6 +4,10 @@ node_modules
 .electropython/python/
 .electropython/state/
 .electropython/venv/
+.electropython/state/python-bootstrap.json
+.electropython/logs/python-bootstrap.log
 vendor/uv/*/
 !vendor/uv/.gitkeep
 !vendor/uv/README.md
+app/python/__pycache__/
+*.pyc

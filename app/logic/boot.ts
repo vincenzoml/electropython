@@ -1,8 +1,10 @@
 import { appState } from '../ui/stores/app-state.svelte';
+import { startRuntimeMonitor } from '../ui/lib/runtime-monitor';
 
 export async function bootApplication() {
   appState.runtime.booted = true;
   appState.runtime.mode = detectMode();
+  startRuntimeMonitor();
 }
 
 function detectMode() {

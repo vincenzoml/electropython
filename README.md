@@ -9,7 +9,7 @@ npm install
 npm run dev
 ```
 
-No system `python` is required. On first start ElectroPython downloads a pinned `uv` binary (unless `vendor/uv/<platform>/` already contains one), provisions Python 3.14 into `.electropython/`, creates a venv, installs `requirements.txt`, and starts uvicorn.
+No system `python` is required. On first start ElectroPython downloads a pinned `uv` binary (unless `vendor/uv/<platform>/` already contains one), provisions Python 3.14 into `.electropython/`, creates a venv, installs `requirements.txt`, and starts uvicorn. The UI shows live `uv` output in `RuntimeInstallLog` during provisioning.
 
 Useful commands:
 
