@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist-electron",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node", "electron"]
+  },
+  "include": ["framework/electron/**/*.ts", "framework/node/**/*.ts", "framework/shared/**/*.ts", "app/node/**/*.ts", "app/logic/**/*.ts"]
+}

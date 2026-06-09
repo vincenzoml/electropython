@@ -1,0 +1,72 @@
+{
+  "name": "electropython-app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Dual-brain Python + Node.js Electron/Svelte app scaffold",
+  "main": "framework/electron/main/dev-main.cjs",
+  "scripts": {
+    "dev": "tsx framework/dev/run.ts --electron",
+    "python-api": "python -m uvicorn framework.python.api_server.server:app --host 127.0.0.1 --port 37620",
+    "dev:web": "tsx framework/dev/run.ts --web",
+    "cli": "tsx app/cli/main.ts",
+    "ai-api": "tsx app/ai/runtime-api.ts",
+    "mcp": "tsx app/mcp/server.ts",
+    "build": "vite build && tsc -p tsconfig.node.json",
+    "package": "npm run build && electron-builder",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx tests/self-test.ts"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "latest",
+    "@tailwindcss/vite": "latest",
+    "electron-store": "latest",
+    "fast-glob": "latest",
+    "svelte": "latest",
+    "tailwindcss": "latest",
+    "vite": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "latest",
+    "electron": "latest",
+    "electron-builder": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  },
+  "build": {
+    "appId": "dev.electropython.app",
+    "productName": "ElectroPython",
+    "files": [
+      "dist/**",
+      "dist-electron/**",
+      "app/**",
+      "framework/**",
+      "requirements.txt",
+      "electropython.config.ts",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "app/python",
+        "to": "app/python"
+      },
+      {
+        "from": "requirements.txt",
+        "to": "requirements.txt"
+      }
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "mac": {
+      "target": ["dmg", "zip"]
+    },
+    "win": {
+      "target": ["nsis"]
+    },
+    "linux": {
+      "target": ["AppImage", "deb"]
+    }
+  }
+}
